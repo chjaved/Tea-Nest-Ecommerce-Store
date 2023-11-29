@@ -204,8 +204,8 @@ header.scrolled{
     display: none;
 }
 .user-box{
-    position: relative;
-    top: 19%;
+    position: absolute;
+    top: 85%;
     left: 75%;
     box-shadow: rgb(255, 255, 255/80%);
     box-shadow: var(--box-shadow);
@@ -213,7 +213,7 @@ header.scrolled{
     padding: 1rem;
     text-align: center;
     width: 20rem;
-    transform: scale(0);
+    transform: scale(1);
     line-height: 2;
 }
 .user-box .btn{
@@ -543,6 +543,201 @@ header.scrolled{
     margin: 1rem 0;
 
 }
+.testimonial-container{
+    padding: 6% 0;
+    background-image: url('img/bg.jpg');
+    margin-bottom: 20px;
+}
+.testimonial-container .container{
+    position: relative;
+    perspective: 1000;
+    padding-top: 2rem;
+}
+.testimonial-container .container .testimonial-item{
+    border-radius: 5px;
+    box-shadow: var(--box-shadow);
+    color: gray;
+    width: 50vw;
+    margin: 0 auto;
+    text-align: center;
+    display: none;
+    padding: 1rem;
+    transform-style: preserve-3d;
+    animation: slide .4s linear;
+}
+@keyframes slide {
+    0%{
+        transform: rotateX(180deg);
+    }
+}
+.testimonial-container .container .testimonial-item > *{
+    animation: slideContent .2s linear .4s backwards;
+}
+@keyframes  slideContent{
+    0%{
+        transform: scale(.5);
+        opacity: 0;
+    }
+}
+.testimonial-container .container .testimonial-item.active{
+    display: block;
+}
+
+.testimonial-container .container .testimonial-item h1{
+    color: var(--green);
+    font-size: 1.3rem;
+    padding-bottom: .5rem;
+    text-transform: capitalize;
+}
+
+.testimonial-container .container .testimonial-item img{
+    padding: 1rem 0;
+    border-radius: 50%;
+}
+.testimonial-container .container .left-arrow,
+.testimonial-container .container .right-arrow{
+    position:absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #fff;
+    box-shadow: var(--box-shadow);
+    background: var(--green);
+    z-index: 2;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.testimonial-container .container .right-arrow{
+    right: 3rem;
+}
+.testimonial-container .container .left-arrow{
+    left: 3rem;
+}
+/* Contact Section */
+.contact {
+    position: relative;
+    min-width: 100vh;
+    padding: 50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0; /* Initial opacity set to 0 */
+    animation: fadeIn 1s forwards; /* Apply fade-in animation */
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1; /* At the end of the animation, set opacity to 1 */
+    }
+}
+.contact .content{
+    max-width: 800px;
+    text-align: center;
+}
+.container-contact{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    background: url(img/bg.jpg);
+}
+.container-contact .contactInfo{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.container-contact .contactInfo .box-contact{
+    position: relative;
+    padding: 20px 0;
+    display: flex;
+}
+.container-contact .contactInfo .box-contact .icon-contact i{
+    min-width: 60px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--green);
+    font-size: 22px;
+}
+.container-contact .contactInfo .box-contact .text{
+    display: flex;
+    margin-left: 20px;
+    font-size: 16px;
+    color: black;
+    flex-direction: column;
+    font-weight: 300;
+}
+.container-contact .contactInfo .box-contact .text h3{
+    font-weight: 500;
+    color: var(--green);
+}
+.contactForm{
+    width: 40%;
+    padding: 40px;
+    background: #fff;
+    border-top: 5px solid var(--green);
+    border-bottom: 5px solid var(--green);
+}
+.contactForm h2{
+    font-size: 30px;
+    color: #333;
+    font-weight: 500;
+}
+.contactForm .inputBox{
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+}
+.contactForm .inputBox input,
+.contactForm .inputBox textarea
+{
+    width: 100%;
+    padding: 5px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid #333;
+    outline: none;
+    resize: none;
+    
+}
+.contactForm .inputBox span{
+    position: absolute;
+    left: 0;
+    padding: 5px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    pointer-events: none;
+    transition: 0.5s;
+    color: #666;
+}
+.contactForm .inputBox input:focus ~ span,
+.contactForm .inputBox input:valid ~ span,
+.contactForm .inputBox textarea:focus ~ span,
+.contactForm .inputBox textarea:valid ~ span{
+    color: var(--green);
+    font-size: 12px;
+    transform: translateY(-20px);
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -706,6 +901,23 @@ footer .bottom-footer{
         width: 100%;
     }
     form{
+        width: 100%;
+    }
+} 
+@media (max-width: 768px) {
+    .slider-detail {
+        text-align: center;
+    }
+
+    .btn {
+        margin-top: 15px;
+    }
+
+    .box {
+        width: 100%;
+    }
+
+    .box img {
         width: 100%;
     }
 }
